@@ -10,6 +10,8 @@ import { ListCargaComponent } from './components/cargas/list-carga/list-carga.co
 import { DashboardComponent } from './components/dashboards/dashboard/dashboard.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { AlertSucessoComponent } from './components/alert-sucesso/alert-sucesso.component';
+import { ModalCargaComponent } from './components/cargas/modal-carga/modal-carga.component';
+import { ModalComponent } from './components/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { AlertSucessoComponent } from './components/alert-sucesso/alert-sucesso.
     EditCargaComponent,
     ListCargaComponent,
     AlertSucessoComponent,
+    ModalCargaComponent,
+    ModalComponent,
   ],
   imports: [
     BrowserModule,

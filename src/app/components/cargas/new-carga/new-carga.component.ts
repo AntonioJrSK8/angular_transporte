@@ -1,6 +1,5 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
-
-declare const $: any;
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ModalComponent } from '../../modal/modal.component';
 
 @Component({
   selector: 'app-new-carga',
@@ -9,19 +8,22 @@ declare const $: any;
 })
 export class NewCargaComponent implements OnInit {
 
-  constructor(private element: ElementRef) { }
+  @ViewChild(ModalComponent) modal!: ModalComponent;
+
+  constructor() { }
 
   ngOnInit(): void {
   }
 
   show(): any {
-    const div = this.getModal();
-    $(div).modal('show');
+    this.modal.show();
+  }
+  hide(): any {
+    this.modal.hide();
   }
 
-  getModal(): HTMLElement {
-    const element: HTMLElement = this.element.nativeElement;
-    return element.firstChild as HTMLElement;
+  addCarga(): any {
+    this.hide();
   }
 
 }

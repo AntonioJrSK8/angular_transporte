@@ -1,4 +1,5 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { ModalComponent } from '../../modal/modal.component';
 
 @Component({
   selector: 'app-edit-carga',
@@ -7,9 +8,14 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 })
 export class EditCargaComponent implements OnInit {
 
-  constructor(private element: ElementRef) { }
+  @ViewChild(ModalComponent) modal!: ModalComponent;
+
+  constructor() { }
 
   ngOnInit(): void {
   }
 
+  edit(): any {
+    this.modal.show();
+  }
 }

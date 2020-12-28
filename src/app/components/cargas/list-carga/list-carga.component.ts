@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { TransporteService } from 'src/app/services/transporte.service';
 import { NewCargaComponent } from '../new-carga/new-carga.component';
 import { EditCargaComponent } from '../edit-carga/edit-carga.component';
+import { ModalCargaComponent } from '../modal-carga/modal-carga.component';
+import { ModalComponent } from '../../modal/modal.component';
 
 @Component({
   selector: 'app-list-carga',
@@ -10,11 +12,12 @@ import { EditCargaComponent } from '../edit-carga/edit-carga.component';
 })
 export class ListCargaComponent implements OnInit {
 
-  @ViewChild(NewCargaComponent)
-  newCarga!: NewCargaComponent;
+  @ViewChild(ModalCargaComponent) modalCarga!: ModalCargaComponent;
 
-  @ViewChild(EditCargaComponent)
-  editCarga!: EditCargaComponent;
+  @ViewChild(NewCargaComponent) newCarga!: NewCargaComponent;
+
+  @ViewChild(EditCargaComponent) editCarga!: EditCargaComponent;
+
 
   constructor(public transporteService: TransporteService) { }
 
@@ -26,7 +29,7 @@ export class ListCargaComponent implements OnInit {
   }
 
   edit(): void {
-    this.newCarga.show();
+    this.editCarga.edit();
   }
 
   destroy(): void {
