@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit, EventEmitter, ElementRef, Output } from '@angular/core';
 
 declare const $: any;
 
@@ -27,6 +27,9 @@ declare const $: any;
 })
 export class ModalComponent implements OnInit {
 
+  // tslint:disable-next-line:no-output-on-prefix
+  @Output() onHide: EventEmitter<any> = new EventEmitter();
+
   // tslint:disable-next-line:no-shadowed-variable
   constructor(private element: ElementRef) {
    }
@@ -36,6 +39,10 @@ export class ModalComponent implements OnInit {
     nativeElement.querySelector('[modal-title]')?.classList.add('modal-title');
     nativeElement.querySelector('[modal-body]')?.classList.add('modal-body');
     nativeElement.querySelector('[modal-footer]')?.classList.add('modal-footer');
+
+    $(this.getModal).on('hidden.bs.modal', (e: any) => {
+      console.log('escondido', e);
+    });
   }
 
   show(): any {

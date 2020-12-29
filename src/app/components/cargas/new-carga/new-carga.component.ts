@@ -1,25 +1,19 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ModalComponent } from '../../modal/modal.component';
+import { Modalable } from '../../modal/modalable';
 
 @Component({
   selector: 'app-new-carga',
   templateUrl: './new-carga.component.html',
   styleUrls: ['./new-carga.component.css']
 })
-export class NewCargaComponent implements OnInit {
+export class NewCargaComponent extends Modalable implements OnInit {
 
-  @ViewChild(ModalComponent) modal!: ModalComponent;
-
-  constructor() { }
+  constructor() {
+    super();
+  }
 
   ngOnInit(): void {
-  }
 
-  show(): any {
-    this.modal.show();
-  }
-  hide(): any {
-    this.modal.hide();
   }
 
   addCarga(): any {
